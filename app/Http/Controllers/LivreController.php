@@ -35,6 +35,7 @@ class LivreController extends Controller
     public function store(Request $request)
     {
         //
+            
     }
 
     /**

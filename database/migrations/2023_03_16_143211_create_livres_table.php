@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('auteur');
-            $table->string('isbn');
+            $table->string('isbn')->unique();
             $table->integer('Nombre_page');
             $table->foreignId('place');
             $table->foreignId('status');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade');
-            $table->foreignId('collection_id')->constrained('collections')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('collection_id')->constrained('collections')->onDelete('cascade')->onUpdate('cascade');
             // $table->foreign('category_id')->references("id")->on("categories")->onDelete("cascade");
             $table->timestamps();
         });
