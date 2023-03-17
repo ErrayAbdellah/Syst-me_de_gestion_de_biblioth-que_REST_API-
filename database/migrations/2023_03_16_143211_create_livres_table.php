@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('isbn')->unique();
             $table->integer('Nombre_page');
             $table->foreignId('place');
+            $table->date('date_publication');
             $table->foreignId('status');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');

@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +28,20 @@ Route::group([
 
 ], function ($router) {
 
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('register', [AuthController::class, 'register']);
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('refresh', [AuthController::class, 'refresh']);
-    Route::post('me', [AuthController::class, 'me']);
-    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('login',    [AuthController::class, 'login'     ]);
+    Route::post('register', [AuthController::class, 'register'  ]);
+    Route::post('logout',   [AuthController::class, 'logout'    ]);
+    Route::post('refresh',  [AuthController::class, 'refresh'   ]);
+    Route::post('me',       [AuthController::class, 'me'        ]);
+    Route::post('logout',   [AuthController::class, 'logout'    ]);
     
     
+});
+
+Route::group([
+    'midlleware' => 'api',
+    'prefix' =>'password'
+],function(){
+    Route::post('reset-password',[AuthController::class , 'resetPassword']);
+    Route::post('reset',[AuthController::class , 'reset']);
 });
