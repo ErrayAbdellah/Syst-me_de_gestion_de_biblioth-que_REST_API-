@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LivreController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,7 @@ class LivreController extends Controller
     public function index()
     {
         //
+        return response()->json(['message'=>'hi']);
     }
 
     /**

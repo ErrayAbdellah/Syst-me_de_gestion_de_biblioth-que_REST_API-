@@ -5,11 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Livre extends Model
+class Book extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'title',
+        'author',
+        'collection',
+        'isbn',
+        'publication_date',
+        'number_of_pages',
+        'location',
     ];
 
     // protected $hidden =['pivot'];

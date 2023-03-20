@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\Book;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,4 +46,14 @@ Route::group([
 ],function(){
     Route::post('reset-password',[AuthController::class , 'resetPassword']);
     Route::post('reset',[AuthController::class , 'reset']);
+});
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'v1'
+
+], function () {
+Route::apiResource('book',function-);
+
 });
