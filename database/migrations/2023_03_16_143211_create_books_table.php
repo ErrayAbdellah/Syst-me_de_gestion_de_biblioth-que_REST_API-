@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('auteur');
             $table->string('isbn')->unique();
             $table->integer('Nombre_page');
-            $table->foreignId('place');
+            $table->string('place');
             $table->date('date_publication');
-            $table->foreignId('status');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('collection_id')->constrained('collections')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('status');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade');
+            $table->foreignId('collection_id')->constrained('collections')->onDelete('cascade');
             // $table->foreign('category_id')->references("id")->on("categories")->onDelete("cascade");
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livres');
+        Schema::dropIfExists('books');
     }
 };

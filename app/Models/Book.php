@@ -10,12 +10,20 @@ class Book extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'author',
-        'collection',
+        'auteur',
         'isbn',
-        'publication_date',
-        'number_of_pages',
-        'location',
+        'Nombre_page',
+        'place',
+        'date_publication',
+        'status',
+        'user_id',
+        'genre_id',
+        'collection_id',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
     // protected $hidden =['pivot'];

@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Models\Book;
-use App\Models\Role;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +48,10 @@ Route::group([
 
 Route::group([
 
-    'middleware' => 'api',
+    'middleware' => ['api','rec'],
     'prefix' => 'v1'
 
 ], function () {
-Route::apiResource('book',function-);
+Route::apiResource('book',BookController::class);
 
 });

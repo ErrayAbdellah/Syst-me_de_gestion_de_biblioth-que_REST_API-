@@ -14,7 +14,7 @@ class Collection extends Model
 
     // protected $hidden =['pivot'];
 
-    public function article(){
-        return $this->hasMany(Livre::class);
+    public function book(){
+        return $this->hasMany(Book::class);
     }
 }
