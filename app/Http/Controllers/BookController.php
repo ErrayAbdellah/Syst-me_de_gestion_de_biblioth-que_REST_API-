@@ -22,11 +22,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $user = JWTAuth::user();
-        $role = User::with(['roles'=>function($q){
-            $q->select('id','name');
-        }])->find($user->id);
-        return response()->json(['message'=>$role->role->name]);
+        $user = Book::with(['collection','genre'])->get();
+        return response()->json([$user]);
     }
 
     /**
@@ -94,9 +91,16 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
         //
+        $user = Book::with('collection','genre')->whereHas('genre',function($query)use($request){
+            // $query->whereHas('genre',function($query)use($request){
+                $query->where('name','like','%'.$request.'%');
+            // }
+            })->get();
+        return response()->json([$user]);
+
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +36,10 @@ Route::group([
     Route::post('logout',   [AuthController::class, 'logout'    ]);
     Route::post('updateProfile',   [AuthController::class, 'updateProfile'    ]);
     
-    
+    Route::get('book/{request}',[UserController::class,'show'] );
+    Route::get('book/',[UserController::class,'index'] );
 });
+
 
 Route::group([
     'midlleware' => 'api',
@@ -48,10 +51,9 @@ Route::group([
 
 Route::group([
 
-    'middleware' => ['api','rec'],
-    'prefix' => 'v1'
+    'middleware' => ['api', 'rec'],
+    'prefix' => 'rec',
 
 ], function () {
 Route::apiResource('book',BookController::class);
-
 });
