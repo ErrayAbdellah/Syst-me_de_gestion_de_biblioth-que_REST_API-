@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -57,3 +58,17 @@ Route::group([
 ], function () {
 Route::apiResource('book',BookController::class);
 });
+
+Route::group([
+    'middleware' => ['api', 'isAdmin'],
+    'prefix' => 'admin',
+],function(){
+    Route::apiResource('genre',GenreController::class);
+});
+
+// Route::group([
+//     'middleware' => ['api','isUser'],
+//     'prexfix' => 'user',
+// ],function(){
+//     // Route::apiResource('user',)
+// });

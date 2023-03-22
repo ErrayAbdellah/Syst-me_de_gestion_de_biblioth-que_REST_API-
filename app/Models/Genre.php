@@ -10,12 +10,12 @@ class Genre extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'user_id'
     ];
     protected $hidden = [
         'id',
         'created_at',
         'updated_at',
-        'user_id'
     ];
 
 

@@ -59,8 +59,6 @@ class BookController extends Controller
             'collection_id' => 'required|string',
         ]);
         $user = JWTAuth::user();
-        // $role = User::with(['role'])->find($user->id);
-        // if($role->role->name === 'receptionist'){
             $data =[
                 'title'=>$request->title,
                 'auteur'=>$request->auteur,
@@ -80,8 +78,6 @@ class BookController extends Controller
                 return response()->json(['error'=> $e->getMessage()]);
             }
             return response()->json(['message'=>'successfully added book']);
-        // }
-        // return response()->json(['message'=> 'don\'t working','roles'=>$role]);
             
     }
 
