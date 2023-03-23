@@ -17,9 +17,6 @@ class Collection extends Model
         'updated_at'
     ];
 
-
-    // protected $hidden =['pivot'];
-
     public function book(){
         return $this->hasMany(Book::class);
     }

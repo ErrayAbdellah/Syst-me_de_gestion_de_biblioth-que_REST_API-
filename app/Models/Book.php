@@ -26,7 +26,7 @@ class Book extends Model
         'updated_at'
     ];
 
-    // protected $hidden =['pivot'];
+    
     public function collection(){
         return $this->belongsTo(Collection::class);
     }
