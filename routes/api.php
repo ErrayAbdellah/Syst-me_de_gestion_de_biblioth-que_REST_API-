@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\UserController;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -64,11 +66,6 @@ Route::group([
     'prefix' => 'admin',
 ],function(){
     Route::apiResource('genre',GenreController::class);
+    Route::patch('update-book/{id}',[AdminController::class , 'update']);
+    Route::delete('destroy-book/{id}',[AdminController::class , 'destroy']);
 });
-
-// Route::group([
-//     'middleware' => ['api','isUser'],
-//     'prexfix' => 'user',
-// ],function(){
-//     // Route::apiResource('user',)
-// });
