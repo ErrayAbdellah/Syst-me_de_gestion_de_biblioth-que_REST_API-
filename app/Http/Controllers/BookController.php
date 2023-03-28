@@ -46,7 +46,6 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
-        // return response()->json(['message'=> 'hello stor']);
         $data = [];
         $request->validate([
             'title' => 'required|string',
@@ -135,7 +134,6 @@ class BookController extends Controller
             'collection_id' => 'required|string',
         ]);
         $user = JWTAuth::user();
-        // $role = User::with(['role'])->find($user->id);
         if($book->user_id == $user->id){
             $data =[
                 'title'=>$request->title,

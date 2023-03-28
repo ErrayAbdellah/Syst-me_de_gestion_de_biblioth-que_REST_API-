@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Claims\JwtId;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
+
 class AuthController extends Controller
 {
     public function __construct()
@@ -101,7 +102,7 @@ class AuthController extends Controller
             'token' => $token, 
             'created_at' => Carbon::now()
         ]);
-        //1 : view - 2 : wlh ma39alt
+        
         Mail::send([], [], function($message) use($email,$token){
             $message->to($email);
             $message->subject('Reset Password');

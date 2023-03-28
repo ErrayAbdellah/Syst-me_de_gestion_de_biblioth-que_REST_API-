@@ -38,7 +38,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string',
             'auteur' => 'required|string',
-            'isbn' => 'required|string',
+            // 'isbn' => 'required|string',
             'Nombre_page' => 'required|string',
             'place' => 'required|string',
             'date_publication' => 'required|string',
@@ -47,8 +47,8 @@ class AdminController extends Controller
             'collection_id' => 'required|string',
         ]);
         $user = JWTAuth::user();
-        // $role = User::with(['role'])->find($user->id);
-        if($book->user_id == $user->id){
+        
+        // if($book->user_id == $user->id){
             $data =[
                 'title'=>$request->title,
                 'auteur'=>$request->auteur,
@@ -68,7 +68,7 @@ class AdminController extends Controller
             }catch(Exception $e){
                 return response()->json(['error'=>$e->getMessage()]);
             }
-        }
+        // }
 
 
     }

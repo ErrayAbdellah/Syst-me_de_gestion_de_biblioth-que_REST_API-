@@ -68,4 +68,5 @@ Route::group([
     Route::apiResource('genre',GenreController::class);
     Route::patch('update-book/{id}',[AdminController::class , 'update']);
     Route::delete('destroy-book/{id}',[AdminController::class , 'destroy']);
+    Route::post('role-change/{id}',[AdminController::class , 'roleChange']);
 });
