@@ -11,10 +11,13 @@ class Collection extends Model
     protected $fillable = [
         'name',
     ];
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
 
-    // protected $hidden =['pivot'];
-
-    public function article(){
-        return $this->hasMany(Livre::class);
+    public function book(){
+        return $this->hasMany(Book::class);
     }
 }

@@ -5,14 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Livre extends Model
+class Book extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'title',
+        'auteur',
+        'isbn',
+        'Nombre_page',
+        'place',
+        'date_publication',
+        'status',
+        'user_id',
+        'genre_id',
+        'collection_id',
     ];
 
-    // protected $hidden =['pivot'];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    
     public function collection(){
         return $this->belongsTo(Collection::class);
     }
