@@ -14,7 +14,6 @@ class BookController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api');
-        // $this->middleware('isAdmin',['only'=>['update', 'destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -91,9 +90,9 @@ class BookController extends Controller
     {
         //
         $user = Book::with('collection','genre')->whereHas('genre',function($query)use($request){
-            // $query->whereHas('genre',function($query)use($request){
+
                 $query->where('name','like','%'.$request.'%');
-            // }
+                
             })->get();
         return response()->json([$user]);
 

@@ -51,14 +51,13 @@ class GenreController extends Controller
         ];
 
         
-        // return response()->json(['message'=>JWTAuth::user()->id,]);
         try{
             Genre::create($data);
             return response()->json(['message'=>'successfully added genre']);
         }catch(Exception $e){
             return response()->json([$e]);
         }
-        // return response()->json(['data'=>$data]);
+        
        
     }
 
